@@ -21,9 +21,9 @@ function convertToJson(csv){
     return res;
 }
 
-let test = convertToJson(fs.readFileSync("./username.csv").toString());
+let test = convertToJson(fs.readFileSync("./listings.csv").toString());
 //writeData(test);
-//console.log(test);
+console.log(test);
 
 
 async function writeData(data){
