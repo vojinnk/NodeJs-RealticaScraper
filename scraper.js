@@ -167,7 +167,7 @@ async function scrapListings(){
     else{
       filteredLinks=links;
     }
-    console.log(filteredLinks.length);
+    //console.log(filteredLinks.length);
     if(filteredLinks.length>0){
       //mnogo je brze nego sa petljom!
         listingData = await Promise.all(filteredLinks.map(async (elem)=>{
@@ -184,6 +184,7 @@ async function scrapListings(){
           return obj; 
         }));
         await writeData(listingData);
+        console.log(`Added ${filteredLinks.length} new listings`);
         
         
         

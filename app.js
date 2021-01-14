@@ -1,5 +1,12 @@
 const express = require("express");
 const app = express();
+const nodeCron = require("node-cron");
+
+
+nodeCron.schedule('0 0 */1 * * *', () => {
+    console.log('running a task every hour');
+    scrapListings();
+  });
 
 const scrapListings = require("./scraper");
 
