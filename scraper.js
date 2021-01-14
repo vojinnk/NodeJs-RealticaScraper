@@ -43,7 +43,7 @@ async function getLinks(){
     }
 
     //rijesiti i ovo sa promisom
-    while(i<=3)
+    while(i<=max)
     //for(i=1;i<=max;i++)
     {    
       let nextUrl=`https://www.realitica.com/?cur_page=${i}&for=Prodaja&pZpa=Crna+Gora&pState=Crna+Gora&type%5B%5D=&lng=hr`
