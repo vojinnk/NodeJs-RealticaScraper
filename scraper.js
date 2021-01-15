@@ -80,10 +80,10 @@ function createListing(url,info,pictures,elemID){
   let odMora= parseInt(checkInfo(info,/<strong>Od Mora \(m\)<\/strong>: (.*?)<br>/));
   let novogradnja= /<strong>Novogradnja<\/strong>/.test(info);
   let klima= /<strong>Klima Uređaj<\/strong>/.test(info);
-  
- // let opis= checkInfo(info,/<strong>Opis<\/strong>:(.*?)<!--/);
-  //let webStr= checkInfo(info,/<strong>Stambena Površina<\/strong>: (.*?)<br>/);
   const $= cheerio.load(info);
+  //obavezno polje pa ce morati imati match!!
+  let opis= info.match(/<strong>Opis<\/strong>:(.|\n)*?<!--/)[0].replace("<strong>Opis</strong>: ","").replace("<!--","").replace("<br>","");
+  //let webStr= checkInfo(info,/<strong><\/strong>: (.*?)<br>/);
   let oglasio= $("div#aboutAuthor > a").text();
   let mobilni= checkInfo(info,/<strong>Mobitel<\/strong>: (.*?)<br>/);
   let zadnjaPromjena= Date.parse(checkInfo(info,/<strong>Zadnja Promjena<\/strong>: (.*?)\n<br>/));
@@ -104,7 +104,7 @@ function createListing(url,info,pictures,elemID){
     "Od mora":odMora,
     Novogradnja:novogradnja,
     Klima:klima,
-    // Opis:opis,
+     Opis:opis,
      Oglasio:oglasio,
      Mobilni:mobilni,
      "Zadnja promjena":zadnjaPromjena,
